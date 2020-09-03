@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Gains.Models.WorkoutPlansModel>
+
+@{
+    ViewBag.Title = "SuggestedWorkoutPlans";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<h2 style="color:#ffffff;background-color:#000000;text-align:center">Suggested Workout Plans</h2>
+<br />
+<br />
+
+<div class="container" style="display:inline;">
+    @foreach (var item in Model)
+    {
+
+        <div class="container">
+            <div class="well">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="@Html.DisplayFor(modelItem => item.WorkoutProfilePic)" style="width:150px;height:150px;">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">@Html.DisplayFor(modelItem => item.WorkoutHeading)</h4>
+                        <p class="text-right"> @Html.DisplayFor(modelItem => item.WorkoutAuthor)</p>
+                        <p>@Html.DisplayFor(modelItem => item.WorkoutBody)...@Html.ActionLink("Read More!!", "WorkoutDetails", new { id = item.WorkoutId })</p>
+                        <ul class="list-inline list-unstyled">
+                            <li><span><i class="glyphicon glyphicon-calendar"></i> @Html.DisplayFor(modelItem => item.WorkoutDate)</span></li>
+                            <li>
+                                @Html.DisplayFor(modelItem => item.WorkoutCategory)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    }
+</div>

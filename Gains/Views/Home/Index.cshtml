@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@{
+    Html.RenderPartial("CarouselView");
+}
+<style>
+    body {
+        background-color: #767c77;
+        color: #ffffff;
+    }
+
+    @@media ( min-width: 768px ) {
+        .grid-divider {
+            position: relative;
+            padding: 0;
+        }
+
+            .grid-divider > [class*='col-'] {
+                position: static;
+            }
+
+                .grid-divider > [class*='col-']:nth-child(n+2):before {
+                    content: "";
+                    border-left: 1px solid #DDD;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                }
+
+        .col-padding {
+            padding: 0 15px;
+        }
+    }
+</style>
+<br />
+<div class="container">
+    <div class="page-header">
+        <h3 style="text-align:center;color:#ffffff;background-color:#000000;">Facts</h3>
+    </div>
+    <div class="row grid-divider">
+        <div class="col-sm-4">
+            <div class="col-padding">
+                <h3>Body Mass Index(BMI)</h3>
+                <p>
+                    The most basic definition of overweight and obesity is having too much body fat-so much so that it “presents a risk to health.” A reliable way to determine whether a person has too much body fat is to calculate the ratio of their weight to their height squared.
+                    This ratio, called the body mass index (BMI), accounts for the fact that taller people have more tissue than shorter people, and so they tend to weigh more.
+                </p>
+                <p>
+                    BMI is not a perfect measure, because it does not directly assess body fat.
+                    Muscle and bone are denser than fat, so an athlete or muscular person may have a high BMI, yet not have too much fat.
+                    But most people are not athletes, and for most people, BMI is a very good gauge of their level of body fat.
+                </p>
+
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="col-padding">
+                <h3>Waist To Stature Ratio(WSR)</h3>
+                <p>Waist-to-hip ratio is defined as the measurement of waist circumference divided by hip circumference (for example, a waist measurement of 33 and a hip measurement of 44 give a ratio of .75).</p>
+                <p>
+                    It is used as a risk-factor assessment tool for heart disease , hypertension , and type-2 diabetes .
+                    Excess body fat is considered a risk factor for the degenerative diseases, particularly abdominal fat, and the waist-to-hip ratio is used to determine the risk.
+                    A waist circumference of more than 40 inches in men and more than 35 inches in women, or a waist-to-hip ratio of more than 1.0 for men and more than 0.8 for women, indicate an increased risk for the above diseases.
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="col-padding">
+                <h3>Vision</h3>
+                <ul>
+                    <li>Personally implement nutrition supplementation, weight management, and a balanced lifestyle for health and vitality.</li>
+                    <li>Continuously improve our product offering to include new, safe, and effective health enhancing products and educational tapes and materials</li>
+                    <li>Strive to provide only accurate, scientific-based information to those who contact our office.</li>
+                    <li>Provide free information and support to customers, distributors, and the friends and associates they refer to us.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr style="color:#ffffff;" />
+</div>
+
+<div>
+    <div style="margin:auto;width:50%;">
+        <h2 style="color:#ffffff;background-color:#000000;text-align:center;">Our Motivation</h2>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/RhGMbENtgI8" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>

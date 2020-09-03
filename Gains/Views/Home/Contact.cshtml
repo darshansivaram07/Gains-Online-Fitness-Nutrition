@@ -1,0 +1,70 @@
+﻿@model Gains.Models.UserInformationModel
+@{
+    ViewBag.Title = "Contact";
+}
+<style>
+    body {
+        background-color: #767c77;
+        font-size: 14px;
+        color: #fff;
+    }
+
+    .simple {
+        width: 300px;
+        max-width: 100%;
+        margin: 100px auto;
+    }
+
+        .simple h3 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 50px;
+        }
+</style>
+@if (ViewBag.Success != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Success");
+        };
+    </script>
+}
+@using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="simple">
+        <h3 style="background-color:#000000">Health Calculator</h3>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                @Html.EditorFor(model => model.UserFirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name" } })
+                @Html.ValidationMessageFor(model => model.UserFirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                @Html.EditorFor(model => model.UserLastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name" } })
+                @Html.ValidationMessageFor(model => model.UserLastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                @Html.EditorFor(model => model.UserPhoneNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone Number" } })
+                @Html.ValidationMessageFor(model => model.UserPhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                @Html.EditorFor(model => model.UserEmailId, new { htmlAttributes = new { @class = "form-control", placeholder = "Email-Id" } })
+                @Html.ValidationMessageFor(model => model.UserEmailId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="submit" value="Subscribe" class="btn btn-primary btn-block" style="font-weight:500;" />
+            </div>
+        </div>
+    </div>
+}
+
+
+

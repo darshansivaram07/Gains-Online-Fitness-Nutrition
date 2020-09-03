@@ -1,0 +1,181 @@
+﻿
+@{
+    ViewBag.Title = "Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    th, td, tr {
+      text-align:center;
+      color:#ffffff;
+    }
+</style>
+<br />
+<br />
+<br />
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered">
+                <caption style="color:#ffffff;background-color:#000000;text-align:center">BMI Ranges</caption>
+                <thead>
+                    <tr>
+                        <th>BMI</th>
+                        <th>CLASSIFICATION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><= 18.5</td>
+                        <td>UnderWeight</td>
+                    </tr>
+                    <tr>
+                        <td>18.5-24.9</td>
+                        <td>Healthy</td>
+                    </tr>
+                    <tr>
+                        <td>25.0-29.9</td>
+                        <td>OverWeight</td>
+                    </tr>
+                    <tr>
+                        <td>30.0-34.9</td>
+                        <td>Class I Obesity</td>
+                    </tr>
+                    <tr>
+                        <td>35.0-39.9</td>
+                        <td>Class II Obesity</td>
+                    </tr>
+                    <tr>
+                        <td>>= 40.0</td>
+                        <td>Class III Obesity</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-bordered">
+                <caption style="color:#ffffff;background-color:#000000;text-align:center">WSR Ranges</caption>
+                <thead>
+                    <tr>
+                        <th>GENDER</th>
+                        <th>WSR</th>
+                        <th>CLASSIFICATION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="3">Male</td>
+                        <td><= 0.95</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>0.96-1.0</td>
+                        <td>Moderate</td>
+                    </tr>
+                    <tr>
+                        <td>>= 1.1</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">Female</td>
+                        <td><= 0.80</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>0.81-0.85</td>
+                        <td>Moderate</td>
+                    </tr>
+                    <tr>
+                        <td>>= 0.86</td>
+                        <td>High</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<header>
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-12  text-center" style="color:#ffffff;">
+                <br>
+                <hr>
+                <h1 class="tagline" style="color:#ffffff;background-color:#000000">Health Calculator Results</h1>
+                <hr>
+                <p>Hello @ViewBag.Name!!!</p>
+                <p>Here are the info about you</p>
+                <p>Age: @ViewBag.Age</p>
+                <p>Height: @ViewBag.Height cm/in</p>
+                <p>Weight: @ViewBag.Weight kg/lb</p>
+                <p>Hip: @ViewBag.Hip cm/in</p>
+                <p>Waist: @ViewBag.Waist cm/in</p>
+                <br>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Click to see your Result
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Body Mass Index(BMI)</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="bs-example">
+                    <!-- Progress bar HTML -->
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" style="min-width: 20px;"></div>
+                    </div>
+                    <script>
+                        var i = @ViewBag.BMIValue;
+                        function makeProgress(){
+
+                            if (i <= 18.5) {
+                                j = 30;
+                                $(".progress-bar").css({ "width": j + "%","background-color":"yellow"});
+                            }
+                            else if (i >= 18.5 && i<=24.9) {
+                                j = 80;
+                                $(".progress-bar").css({ "width": j + "%", "background-color": "green" });
+                            }
+                            else if (i >= 25.0 && i<=29.9) {
+                                j = 50;
+                                $(".progress-bar").css({ "width": j + "%", "background-color": "red" });
+                            }
+                            else if (i >= 30.0) {
+                                j = 40;
+                                $(".progress-bar").css({ "width": j + "%", "background-color": "red" });
+                            }
+
+                            // Wait for sometime before running this script again
+                            setTimeout("makeProgress()", 300);
+                        }
+                        makeProgress();
+                    </script>
+                </div>
+                <p>Your BMI is @ViewBag.BMIValue</p>
+                <p>@ViewBag.BMIResult</p>
+                <p>Your WSR is @ViewBag.WSRValue</p>
+                <p>@ViewBag.WSRResult</p>
+                <p>Your Goal Category is @ViewBag.Goal</p>
+                @Html.ActionLink("Suggested Diet Plans", "SuggestedDietplans", "HealthCalculator", new { @style = "background-color:#000000;" })
+                @Html.ActionLink("Suggested Workout Plans", "SuggestedWorkoutplans", "HealthCalculator", new { @style = "background-color:#000000;" })
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+

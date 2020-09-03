@@ -1,0 +1,124 @@
+﻿@model Gains.Models.WorkoutPlansModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>WorkoutDetails</h2>
+
+<style>
+    .navbar {
+        margin-bottom: 0;
+    }
+
+    section {
+        width: 100%;
+        float: left;
+    }
+
+    .banner-section {
+        background-image: url("../../Content/Images/Background/workout bg.jpg");
+        background-size: cover;
+        height: 380px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        background-position: 0;
+    }
+
+    .post-title-block {
+        padding: 100px 0;
+    }
+
+        .post-title-block h1 {
+            color: #fff;
+            font-size: 55px;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        .post-title-block li {
+            font-size: 20px;
+            color: #fff;
+        }
+
+    .image-block {
+        float: left;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+ 
+</style>
+@{
+    Html.RenderPartial("NavbarView");
+}
+<div>
+
+    <section class="banner-section">
+    </section>
+    <section class="post-content-section">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 post-title-block">
+
+                    <h1 class="text-center">@Html.DisplayFor(model => model.WorkoutHeading)</h1>
+                    <ul class="list-inline text-center">
+                        <li>@Html.DisplayFor(model => model.WorkoutAuthor) |</li>
+                        <li>@Html.DisplayFor(model => model.WorkoutDate) </li>
+                    </ul>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <p class="lead">@Html.DisplayFor(model => model.WorkoutBody)</p>
+                    <p style="text-decoration:solid;font-weight:bold;">@Html.DisplayFor(model => model.WorkoutSubHeading1)</p>
+                    <div class="well ">
+                        <p>@Html.DisplayFor(model => model.WorkoutBody1)</p>
+                    </div>
+                    <p style="text-decoration:solid;font-weight:bold;">@Html.DisplayFor(model => model.WorkoutSubHeading2)</p>
+                    <div class="well ">
+                        <p>@Html.DisplayFor(model => model.WorkoutBody2)</p>
+                    </div>
+                    <p style="text-decoration:solid;font-weight:bold;">@Html.DisplayFor(model => model.WorkoutSubHeading3)</p>
+                    <div class="well ">
+                        <p>@Html.DisplayFor(model => model.WorkoutBody3)</p>
+                    </div>
+                    <p style="text-decoration:solid;font-weight:bold;">@Html.DisplayFor(model => model.WorkoutSubHeading4)</p>
+                    <div class="well ">
+                        <p>@Html.DisplayFor(model => model.WorkoutBody4)</p>
+                    </div>
+                    <p style="text-decoration:solid;font-weight:bold;">@Html.DisplayFor(model => model.WorkoutSubHeading5)</p>
+                    <div class="well ">
+                        <p>@Html.DisplayFor(model => model.WorkoutBody5)</p>
+                    </div>
+                    <p style="text-decoration:solid;font-weight:bold;">@Html.DisplayFor(model => model.WorkoutSubHeading6)</p>
+                    <div class="well ">
+                        <p>@Html.DisplayFor(model => model.WorkoutBody6)</p>
+                    </div>
+                    <p style="text-decoration:solid;font-weight:bold;">@Html.DisplayFor(model => model.WorkoutSubHeading7)</p>
+                    <div class="well ">
+                        <p>@Html.DisplayFor(model => model.WorkoutBody7)</p>
+                    </div>
+
+
+                    <div class="image-block">
+                        <img src="@Html.DisplayFor(model => model.WorkoutDetailPic)" style="border: 5px solid #555;" class="img-responsive">
+                    </div>
+                </div>
+                <div class="col-lg-3  col-md-3 col-sm-12">
+                    <div class="well">
+                        <h2>About Author</h2>
+                        <img src="@Html.DisplayFor(model => model.WorkoutProfilePic)" class="media-object" style="height:150px;width:180px;" />
+                        <p>@Html.DisplayFor(model => model.WorkoutAuthorDescription)</p>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+     
+    </section>
+
+</div>

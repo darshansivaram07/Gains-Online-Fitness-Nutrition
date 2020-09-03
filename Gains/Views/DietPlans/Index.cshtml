@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Gains.Models.DietPlansModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<h2 style="color:#ffffff;background-color:#000000;text-align:center">Diet Plans</h2>
+<br />
+<br />
+<div class="container" style="display:inline;">
+    @foreach (var item in Model)
+    {
+
+        <div class="container">
+            <div class="well">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="@Html.DisplayFor(modelItem => item.DietProfilePic)" style="width:150px;height:150px;">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">@Html.DisplayFor(modelItem => item.DietHeading)</h4>
+                        <p class="text-right"> @Html.DisplayFor(modelItem => item.DietAuthor)</p>
+                        <p>@Html.DisplayFor(modelItem => item.DietBody)...@Html.ActionLink("Read More!!", "DietDetails", new { id = item.DietId })</p>
+                        <ul class="list-inline list-unstyled">
+                            <li><span><i class="glyphicon glyphicon-calendar"></i> @Html.DisplayFor(modelItem => item.DietDate)</span></li>
+                            <li>
+                                @Html.DisplayFor(modelItem => item.DietCategory)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    }
+</div>

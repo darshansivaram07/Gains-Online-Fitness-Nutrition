@@ -1,0 +1,119 @@
+﻿@model Gains.Models.DietPlansModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .navbar {
+        margin-bottom: 0;
+    }
+
+    section {
+        width: 100%;
+        float: left;
+    }
+
+    .banner-section {
+        background-image: url("../../Content/Images/Background/diet bg.jpg");
+        background-size: cover;
+        height: 380px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        background-position: 0;
+    }
+
+    .post-title-block {
+        padding: 100px 0;
+    }
+
+        .post-title-block h1 {
+            color: #fff;
+            font-size: 85px;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        .post-title-block li {
+            font-size: 20px;
+            color: #fff;
+        }
+
+    .image-block {
+        float: left;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+ 
+</style>
+@{
+    Html.RenderPartial("NavbarView");
+}
+<div>
+
+    <section class="banner-section">
+    </section>
+    <section class="post-content-section">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 post-title-block">
+
+                    <h1 class="text-center">@Html.DisplayFor(model => model.DietHeading)</h1>
+                    <ul class="list-inline text-center">
+                        <li>@Html.DisplayFor(model => model.DietAuthor) |</li>
+                        <li>@Html.DisplayFor(model => model.DietDate) </li>
+                    </ul>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <p class="lead">@Html.DisplayFor(model => model.DietBody)</p>
+                    <p style="text-decoration:solid;font-weight:bold;">@Html.DisplayFor(model => model.DietSubHeading1)</p>
+                    <div class="well ">
+                        <p>@Html.DisplayFor(model => model.DietBody1)</p>
+                    </div>
+                    <p style="text-decoration:solid;font-weight:bold;">@Html.DisplayFor(model => model.DietSubHeading2)</p>
+                    <div class="well ">
+                        <p>@Html.DisplayFor(model => model.DietBody2)</p>
+                    </div>
+                    <p style="text-decoration:solid;font-weight:bold;">@Html.DisplayFor(model => model.DietSubHeading3)</p>
+                    <div class="well ">
+                        <p>@Html.DisplayFor(model => model.DietBody3)</p>
+                    </div>
+                    <p style="text-decoration:solid;font-weight:bold;">@Html.DisplayFor(model => model.DietSubHeading4)</p>
+                    <div class="well ">
+                        <p>@Html.DisplayFor(model => model.DietBody4)</p>
+                    </div>
+                    <p style="text-decoration:solid;font-weight:bold;">@Html.DisplayFor(model => model.DietSubHeading5)</p>
+                    <div class="well ">
+                        <p>@Html.DisplayFor(model => model.DietBody5)</p>
+                    </div>
+                    <p style="text-decoration:solid;font-weight:bold;">@Html.DisplayFor(model => model.DietSubHeading6)</p>
+                    <div class="well ">
+                        <p>@Html.DisplayFor(model => model.DietBody6)</p>
+                    </div>
+                    <p style="text-decoration:solid;font-weight:bold;">@Html.DisplayFor(model => model.DietSubHeading7)</p>
+                    <div class="well ">
+                        <p>@Html.DisplayFor(model => model.DietBody7)</p>
+                    </div>
+
+
+                    <div class="image-block">
+                        <img src="@Html.DisplayFor(model => model.DietDetailPic)" style="border: 5px solid #555;" class="img-responsive">
+                    </div>
+                </div>
+                <div class="col-lg-3  col-md-3 col-sm-12">
+                    <div class="well">
+                        <h2>About Author</h2>
+                        <img src="@Html.DisplayFor(model => model.DietProfilePic)" class="media-object" style="height:150px;width:180px;" />
+                        <p>@Html.DisplayFor(model => model.DietAuthorDescription)</p>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+</div>

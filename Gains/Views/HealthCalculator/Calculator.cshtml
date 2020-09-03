@@ -1,0 +1,98 @@
+﻿@model Gains.Models.HealthCalculatorModel
+
+@{
+    ViewBag.Title = "Calculator";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: #767c77;
+        font-size: 14px;
+        color: #fff;
+    }
+
+    .simple {
+        width: 300px;
+        max-width: 100%;
+        margin: 100px auto;
+    }
+
+        .simple h3 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 50px;
+        }
+</style>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="simple">
+        <h3 style="background-color:#000000">Health Calculator</h3>
+
+
+        <div class="row">
+            <div class="col-md-12 form-group">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Name" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                Male: @Html.RadioButtonFor(model => model.Gender, "Male") &nbsp;&nbsp;&nbsp; Female: @Html.RadioButtonFor(model => model.Gender, "Female")
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control", placeholder = "Age" } })
+                @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                @Html.DropDownListFor(model => model.Unit, (List<SelectListItem>)ViewBag.UnitTypes, "Select Unit System", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Unit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control", placeholder = "Weight(kg or lb)" } })
+                @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control", placeholder = "Height(cm or in)" } })
+                @Html.ValidationMessageFor(model => model.Height, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                @Html.EditorFor(model => model.Waist, new { htmlAttributes = new { @class = "form-control", placeholder = "Waist(cm or in)" } })
+                @Html.ValidationMessageFor(model => model.Waist, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                @Html.EditorFor(model => model.Hip, new { htmlAttributes = new { @class = "form-control", placeholder = "Hip(cm or in)" } })
+                @Html.ValidationMessageFor(model => model.Hip, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="submit" value="Calculate" class="btn btn-primary btn-block" style="font-weight:500;" />
+            </div>
+        </div>
+    </div>
+
+
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
